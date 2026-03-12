@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mailer - Admin</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dashliro.vercel.app/">
+    <meta property="og:title" content="DashLiro - Reliable. Fast. Secure Delivery.">
+    <meta property="og:description"
+        content="Deliver smarter with DashLiro. Fast, secure, and real-time tracked deliveries for parcels, bulk freight, and more.">
+    <meta property="og:image" content="https://dashliro.vercel.app/assets/images/dashliro-brand.png">
+    <meta property="og:site_name" content="DashLiro">
+
+    <!-- Favicon setup -->
+    <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpg">
+    <link rel="shortcut icon" href="./assets/images/logo.jpg" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./assets/images/logo.jpg">
+
+    <!-- styling -->
+    <link rel="stylesheet" href="/assets/css/admin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Firebase -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js"></script>
+    <script type="module" src="/assets/js/mailer.js"></script>
+</head>
+
+<body>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <div class="container" id="dashboard-content" style="display: none;">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="admin.html">
+                        <span class="icon">
+                            <img src="/assets/images/logo.png" alt="">
+                        </span>
+                        <span class="title brand">Admin</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="admin.html">
+                        <span class="icon"><i class="fa-solid fa-truck"></i></span>
+                        <span class="title">Create</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="view-edit.html">
+                        <span class="icon"><i class="fa-solid fa-pen-to-square"></i></span>
+                        <span class="title">View & Edit</span>
+                    </a>
+                </li>
+
+                <li class="active-link">
+                    <a href="mailer.html">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <span class="title">Mailer</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a id="logoutButton">
+                        <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ================= Main ================= -->
+        <div class="main">
+            <div class="topbar">
+                <div></div>
+                <div class="toggle"><img src="/assets/images/menu.png" alt=""></div>
+                <div class="home"><a href="index.html"><i class="fa-solid fa-home"></i></a></div>
+            </div>
+
+            <!-- ================= Mailer Section ================= -->
+            <h2 class="dashliro-mailer-title"><i class="fa-solid fa-envelope"></i> Delivery Notice Mail</h2>
+            <div class="dashliro-mailer-container">
+
+                <form class="dashliro-mailer-form" id="dashliroMailerForm">
+                    <label class="dashliro-mailer-label" for="dashliroRecipientName">Recipient Name</label>
+                    <input class="dashliro-mailer-input" type="text" id="dashliroRecipientName"
+                        placeholder="Enter recipient's name" required>
+
+                    <label class="dashliro-mailer-label" for="dashliroRecipientEmail">Recipient Email</label>
+                    <input class="dashliro-mailer-input" type="email" id="dashliroRecipientEmail"
+                        placeholder="Enter recipient's email" required>
+
+                    <label class="dashliro-mailer-label" for="dashliroPackageSummary">Package Summary</label>
+                    <textarea class="dashliro-mailer-textarea" id="dashliroPackageSummary"
+                        placeholder="Enter package summary" required></textarea>
+
+                    <label class="dashliro-mailer-label" for="dashliroDeliveryAddress">Delivery Address</label>
+                    <textarea class="dashliro-mailer-textarea" id="dashliroDeliveryAddress"
+                        placeholder="Enter delivery address" required></textarea>
+
+                    <label class="dashliro-mailer-label" for="dashliroTrackingId">Tracking ID</label>
+                    <input class="dashliro-mailer-input" type="text" id="dashliroTrackingId"
+                        placeholder="Enter tracking ID" required>
+
+                    <div class="dashliro-mailer-success" id="dashliroSuccessMsg">✅ Email sent successfully!</div>
+                    <div class="dashliro-mailer-error" id="dashliroErrorMsg">❌ Failed to send email. Try again.</div>
+
+                    <div class="form-actions">
+                        <button class="dashliro-mailer-btn" type="submit">Send Email</button>
+                        <button type="button" id="resetFormBtn" class="secondary-btn">Reset</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ========================== Popups ====================== -->
+            <div class="popup-overlay" id="popupOverlay"></div>
+            <div id="confirmationPopup" class="popup">
+                <div class="popup-content">
+                    <h3>Logout</h3>
+                    <span id="confirmationMessage">Are you sure you want to log out?</span>
+                    <div class="popup-buttons">
+                        <button id="confirmNo" class="confirm-button">Cancel</button>
+                        <button id="confirmYes" class="confirm-button">Confirm</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="popup" class="popup">
+                <span id="popup-message"></span>
+                <span class="close-popup">&times;</span>
+            </div>
+
+            <script>
+                // ============== Toggle Navigation
+                let toggle = document.querySelector(".toggle");
+                let navigation = document.querySelector(".navigation");
+                let main = document.querySelector(".main");
+                toggle.onclick = function () {
+                    navigation.classList.toggle("active");
+                    main.classList.toggle("active");
+                };
+
+                // ============== Popup
+                window.onclick = function (event) {
+                    const popup = document.getElementById('popup');
+                    if (event.target === popup) popup.style.display = 'none';
+                }
+                document.querySelector('.close-popup').onclick = function () {
+                    document.getElementById('popup').style.display = 'none';
+                }
+            </script>
+
+            <!-- Scripts should go here -->
+            <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+            <script src="/assets/js/mail-sender.js"></script>
+</body>
+
+</html>

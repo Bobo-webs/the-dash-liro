@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DashLiro - Home</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dashliro.vercel.app/">
+  <meta property="og:title" content="DashLiro - Reliable. Fast. Secure Delivery.">
+  <meta property="og:description"
+    content="Deliver smarter with DashLiro. Fast, secure, and real-time tracked deliveries for parcels, bulk freight, and more.">
+  <meta property="og:image" content="https://dashliro.vercel.app/assets/images/dashliro-brand.png">
+  <meta property="og:site_name" content="DashLiro">
+
+  <!-- Favicon setup -->
+  <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpg">
+  <link rel="shortcut icon" href="./assets/images/logo.jpg" type="image/x-icon">
+  <link rel="apple-touch-icon" href="./assets/images/logo.jpg">
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js"></script>
+  <script type="module" src="/assets/js/app.js"></script>
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- Fullscreen Package Track Overlay -->
+  <div id="track-overlay">
+    <div class="track-overlay-content">
+      <span class="close-btn" onclick="closeTrackBox()">&times;</span>
+      <h2>Track Your Package</h2>
+      <div class="track-input-box">
+        <input type="text" placeholder="Enter Tracking ID">
+        <button class="id-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Track Package Button -->
+  <div class="track-btn">
+    <div class="track-icon">
+      <i class="fa-solid fa-location-dot"></i>
+    </div>
+    <a href="#" class="track-link" onclick="openTrackBox(event)">Track Package</a>
+  </div>
+
+
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <ul class="info">
+            <li>
+              <i class="fa fa-envelope"></i><a class="mail-link"
+                href="mailto:contact.dashliro@gmail.com">contact.dashliro@gmail.com</a>
+            </li>
+            <li><i class="fa fa-map"></i>525 Uni Ave, Palo Alto, CA 94301</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <ul class="social-links">
+            <li><a href="https://t.me/DashLiro"><i class="fab fa-telegram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <a href="index.html" class="logo">
+              <h1>
+                <img src="./assets/images/logo.png" alt="logo">
+                DashLiro
+              </h1>
+            </a>
+            <ul class="nav">
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li class="track" id="track"><a onclick="openTrackBox(event)">Track Package</a></li>
+              <li class="track"><a onclick="openTrackBox(event)"><i class="fa-solid fa-location-dot"></i> Track
+                  Package</a></li>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner">
+    <div class="owl-carousel owl-banner">
+      <div class="item item-1">
+        <div class="header-text">
+          <h2>Speed Matters.<br>Get Your Parcel Moving Now!</h2>
+        </div>
+      </div>
+      <div class="item item-2">
+        <div class="header-text">
+          <h2>Deliver Smart.<br>Move Faster Than Ever.</h2>
+        </div>
+      </div>
+      <div class="item item-3">
+        <div class="header-text">
+          <h2>Swift Service.<br>Delivering with Unmatched Speed.</h2>
+        </div>
+      </div>
+      <div class="item item-4">
+        <div class="header-text">
+          <h2>Right on Time.<br>We Move What Matters Most!</h2>
+        </div>
+      </div>
+      <div class="item item-5">
+        <div class="header-text">
+          <h2>Time Wins.<br>Fast, Steady, On Schedule.</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="featured section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="left-image">
+            <img src="assets/images/delman3.jpg" alt="">
+            <a href="services.html"><img src="assets/images/delicon.png" alt=""
+                style="max-width: 60px; padding: 0px;"></a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="section-heading">
+            <h6>| Featured</h6>
+            <h2>Safe &amp; Secured handling</h2>
+          </div>
+          <section class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  What happens if my delivery is delayed?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Delays are rare, but if they occur, our customer support team will update you immediately and work to
+                  resolve the issue as quickly as possible.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  What areas do you cover?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  We operate across major cities and suburban areas, and now deliver worldwide. Wherever your parcel
+                  needs to go, DashLiro connects you across borders with fast, reliable international shipping.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  How can I contact customer support?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  You can reach our 24/7 support team via Gmail, Telegram, or by filling out the contact form in the
+                  Contact section. We’re always ready to help you track, update, or resolve any delivery issue.
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="col-lg-3">
+          <div class="info-table">
+            <ul>
+              <li>
+                <img src="assets/images/transit.png" alt="" style="max-width: 50px;">
+                <h4>Security<br><span>Safe Transit</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/globe.png" alt="" style="max-width: 50px;">
+                <h4>Coverage<br><span>Global Reach</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/efficiency.png" alt="" style="max-width: 50px;">
+                <h4>Efficiency<br><span>Smart Routes</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/insurance.png" alt="" style="max-width: 50px;">
+                <h4>Insurance<br><span>Safe Cover</span></h4>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+          <div class="section-heading text-center">
+            <h6></h6>
+            <h2>From small parcels to bulk freight</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <div class="video-frame">
+            <img src="assets/images/delvan.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fun-facts">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="counter">
+                  <h2 class="timer count-title count-number" data-to="80" data-speed="1000"></h2>
+                  <p class="count-text ">Countries<br>Served</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="counter">
+                  <h2 class="timer count-title count-number" data-to="12" data-speed="1000"></h2>
+                  <p class="count-text ">Years<br>Experience</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="counter">
+                  <h2 class="timer count-title count-number" data-to="9" data-speed="1000"></h2>
+                  <p class="count-text ">Awards<br>Won</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section best-deal">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="section-heading">
+            <h6>| Our Services</h6>
+            <h2>Find the Fastest Shipping Option Today!</h2>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="tabs-content">
+            <div class="row">
+              <div class="nav-wrapper ">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab"
+                      data-bs-target="#appartment" type="button" role="tab" aria-controls="appartment"
+                      aria-selected="true">Air Freight</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="villa-tab" data-bs-toggle="tab" data-bs-target="#villa" type="button"
+                      role="tab" aria-controls="villa" aria-selected="false">Ocean Freight</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="penthouse-tab" data-bs-toggle="tab" data-bs-target="#penthouse"
+                      type="button" role="tab" aria-controls="penthouse" aria-selected="false">Road Transport</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="appartment" role="tabpanel" aria-labelledby="appartment-tab">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="info-table">
+                        <ul>
+                          <li>Service <span>Air</span></li>
+                          <li>Coverage <span>90+ Ports</span></li>
+                          <li>Transit Time <span>1-5 Days</span></li>
+                          <li>Cargo Types <span>All</span></li>
+                          <li>Tracking <span>Real-Time</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <img src="assets/images/air.png" alt="">
+                    </div>
+                    <div class="col-lg-3">
+                      <h4>About our Air Freight Service</h4>
+                      <p>Move your cargo fast and securely with our international air freight solutions. We deliver to
+                        over 120 global destinations, offering express delivery, door-to-door service, and real-time
+                        tracking.
+                        <br><br>
+                        Our expert team manages customs clearance, special cargo handling, and time-critical shipments
+                        with precision and care. Whether it’s commercial goods, perishable items, or high-value freight,
+                        we ensure on-time, reliable air transport every time.
+                      </p>
+                      <div class="icon-button">
+                        <a href="contact.html#contact-us"><i class="fa-solid fa-rocket"></i> Get Started</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="villa" role="tabpanel" aria-labelledby="villa-tab">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="info-table">
+                        <ul>
+                          <li>Service <span>Ocean</span></li>
+                          <li>Coverage <span>200+ Ports</span></li>
+                          <li>Transit Time <span>7-30 days</span></li>
+                          <li>Container <span>FCL/LCL</span></li>
+                          <li>Tracking <span>Real-Time</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <img src="assets/images/ocean.png" alt="">
+                    </div>
+                    <div class="col-lg-3">
+                      <h4>About Our Ocean Freight Service</h4>
+                      <p>Our Ocean Freight solutions provide a dependable and cost-effective way to move cargo across
+                        continents. With access to 120+ global ports and strong partnerships with leading carriers, we
+                        offer both FCL (Full Container Load) and LCL (Less than Container Load) options tailored to your
+                        needs. <br><br>We handle documentation, customs clearance, and port logistics, ensuring a
+                        seamless flow from origin to destination. Whether you’re shipping bulk commodities or
+                        specialized cargo, our experts coordinate every step for secure, on-time delivery. Real-time
+                        tracking and transparent communication keep you informed throughout the entire journey.</p>
+                      <div class="icon-button">
+                        <a href="contact.html#contact-us"><i class="fa-solid fa-rocket"></i> Get Started</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="penthouse" role="tabpanel" aria-labelledby="penthouse-tab">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="info-table">
+                        <ul>
+                          <li>Service <span>Road</span></li>
+                          <li>Coverage <span>Intl.</span></li>
+                          <li>Transit Time <span>1-7 Days</span></li>
+                          <li>Fleet <span>Light-Heavy</span></li>
+                          <li>Tracking <span>Real-Time</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <img src="assets/images/dashvan.png" alt="">
+                    </div>
+                    <div class="col-lg-3">
+                      <h4>About Our Road Transport Services</h4>
+                      <p>Our Road Transport network connects cities and borders with reliable, flexible, and secure
+                        ground logistics. Using a modern, GPS-tracked fleet, we provide door-to-door delivery, last-mile
+                        distribution, and long-haul transportation for a wide range of cargo types. <br><br>We focus on
+                        speed, safety, and cost efficiency, supported by professional drivers and a responsive
+                        operations team. From regional deliveries to international freight movements, our road solutions
+                        ensure your goods arrive on time and in perfect condition, every mile of the way.</p>
+                      <div class="icon-button">
+                        <a href="contact.html#contact-us"><i class="fa-solid fa-rocket"></i> Get Started</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="properties section">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h6>| Other Services</h6>
+        <h5 class="topical-headers text-center">Delivering What You Need, When You Need It</h5>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <img src="assets/images/warehouse.png" alt="">
+            <h4>Warehousing</h4>
+            <span class="category">Flexible</span>
+            <span class="category">Automated</span>
+            <span class="category">Monitored</span>
+            <span class="category">Spacious</span>
+            <ul></ul>
+            <div class="main-button">
+              <a href="contact.html#contact-us">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <img src="assets/images/delman.png" alt="">
+            <h4>Diplomatic Logistics</h4>
+            <span class="category">Confidential</span>
+            <span class="category">Tracked</span>
+            <span class="category">Priority</span>
+            <span class="category">Compliant</span>
+            <ul></ul>
+            <div class="main-button">
+              <a href="contact.html#contact-us">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <img src="assets/images/packaging.png" alt="">
+            <h4>Packaging & Storage</h4>
+            <span class="category">Durable</span>
+            <span class="category">Safe</span>
+            <span class="category">Organized</span>
+            <span class="category">Protective</span>
+            <ul></ul>
+            <div class="main-button">
+              <a href="contact.html#contact-us">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ------------- Footer section ------------- -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="./assets/images/logo.png" alt="DashLiro Logo">
+        <div class="logo-text">
+          <h4>DashLiro</h4>
+          <p>Reliable. Fast. Secure Delivery.</p>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">&lt; Home</a></li>
+          <li><a href="about.html">&lt; About</a></li>
+          <li><a href="services.html">&lt; Services</a></li>
+          <li><a href="contact.html">&lt; Contact</a></li>
+          <li><a href="index.html#accordionExample">&lt; FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h5>Get in Touch</h5>
+        <p><i class="fa-solid fa-envelope"></i><a
+            href="mailto:contact.dashliro@gmail.com">contact.dashliro@gmail.com</a></p>
+        <p><i class="fa-solid fa-location-dot"></i> Head Office: 525 Uni Ave, Palo Alto, CA 94301</p>
+        <br>
+        <h5>Track Package</h5>
+        <div class="track-box">
+          <input type="text" placeholder="Enter Tracking ID">
+          <button class="id-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 DashLiro. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+
+</body>
+
+</html>

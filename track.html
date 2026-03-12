@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delivery Tracking - DashLiro</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dashliro.vercel.app/">
+    <meta property="og:title" content="DashLiro - Reliable. Fast. Secure Delivery.">
+    <meta property="og:description"
+        content="Deliver smarter with DashLiro. Fast, secure, and real-time tracked deliveries for parcels, bulk freight, and more.">
+    <meta property="og:image" content="https://dashliro.vercel.app/assets/images/dashliro-brand.png">
+    <meta property="og:site_name" content="DashLiro">
+
+    <!-- Favicon setup -->
+    <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpg">
+    <link rel="shortcut icon" href="./assets/images/logo.jpg" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./assets/images/logo.jpg">
+
+    <!-- ------- Styling -------- -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js"></script>
+    <script type="module" src="/assets/js/app.js"></script>
+</head>
+
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a style="margin-left: 1rem;" href="index.html" class="logo">
+                            <h1>
+                                <img src="./assets/images/logo.png" alt="logo">
+                                DashLiro
+                            </h1>
+                        </a>
+                        <ul class="nav">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <section class="delivery-status">
+        <div class="delivery-card">
+
+            <!-- Top Info -->
+            <div class="delivery-info">
+                <div class="info-group">
+                    <h3><i class="fa-solid fa-calendar-days"></i> Dispatch Date:</h3>
+                    <p></p>
+                </div>
+                <div class="info-group">
+                    <h3><i class="fa-solid fa-truck"></i> Estimated Delivery:</h3>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- Receiver Info -->
+            <div class="extra-info">
+                <p><strong>Receiver:</strong></p>
+                <p><strong>Receiver Address:</strong></p>
+            </div>
+
+            <!-- Package Summary -->
+            <div class="package-summary">
+                <h4>Package Summary</h4>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+
+            <!-- Progress Tracker -->
+            <div class="progress-vertical">
+                <!-- Step 1 -->
+                <div class="step completed">
+                    <div class="circle"><i class="fa-solid fa-check"></i></div>
+                    <div class="step-content">
+                        <p class="title">Dispatch Received</p>
+                        <div class="details">
+                            <p class="location"></p>
+                            <p class="datetime"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step completed">
+                    <div class="circle"><i class="fa-solid fa-check"></i></div>
+                    <div class="step-content">
+                        <p class="title">Quality Control</p>
+                        <div class="details">
+                            <p class="location"></p>
+                            <p class="datetime"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step completed">
+                    <div class="circle"><i class="fa-solid fa-check"></i></div>
+                    <div class="step-content">
+                        <p class="title">Ready to Ship</p>
+                        <div class="details">
+                            <p class="location"></p>
+                            <p class="datetime"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 (Active) -->
+                <div class="step active">
+                    <div class="circle"><i class="fa-solid fa-truck"></i></div>
+                    <div class="step-content">
+                        <p class="title">In Transit</p>
+                        <div class="details">
+                            <p class="location"></p>
+                            <p class="datetime"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step">
+                    <div class="circle"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="step-content">
+                        <p class="title">Out for Delivery</p>
+                        <div class="details">
+                            <p class="location"></p>
+                            <p class="datetime"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="step">
+                    <div class="circle"><i class="fa-regular fa-circle-check"></i></div>
+                    <div class="step-content">
+                        <p class="title">Delivered</p>
+                        <div class="details">
+                            <p class="location"></p>
+                            <p class="datetime"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ------------- Footer section ------------- -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="./assets/images/logo.png" alt="DashLiro Logo">
+                <div class="logo-text">
+                    <h4>DashLiro</h4>
+                    <p>Reliable. Fast. Secure Delivery.</p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.html">&lt; Home</a></li>
+                    <li><a href="about.html">&lt; About</a></li>
+                    <li><a href="services.html">&lt; Services</a></li>
+                    <li><a href="contact.html">&lt; Contact</a></li>
+                    <li><a href="index.html#accordionExample">&lt; FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h5>Get in Touch</h5>
+                <p><i class="fa-solid fa-envelope"></i><a
+                        href="mailto:contact.dashliro@gmail.com">contact.dashliro@gmail.com</a></p>
+                <p><i class="fa-solid fa-location-dot"></i> Head Office: 525 Uni Ave, Palo Alto, CA 94301</p>
+                <br>
+                <h5>Track Package</h5>
+                <div class="track-box">
+                    <input type="text" placeholder="Enter Tracking ID">
+                    <button class="id-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 DashLiro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
+
+        // ====================== CONFIG ====================== //
+        const firebaseConfig = {
+            apiKey: "AIzaSyDsElhTPwA5F0_jU9hbrGHlSXjUj4SbEd4",
+            authDomain: "dashliro.firebaseapp.com",
+            databaseURL: "https://dashliro-default-rtdb.firebaseio.com",
+            projectId: "dashliro",
+            storageBucket: "dashliro.firebasestorage.app",
+            messagingSenderId: "579044733911",
+            appId: "1:579044733911:web:0a54acc9dc96a1265fd192",
+            measurementId: "G-EJX8ELYMHZ"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // ====================== TRACK PAGE LOGIC ====================== //
+        document.addEventListener("DOMContentLoaded", () => {
+            const stored = localStorage.getItem("trackingData");
+
+            if (!stored) {
+                alert("No tracking data found. Please search again.");
+                window.location.href = "index.html";
+                return;
+            }
+
+            const parsed = JSON.parse(stored);
+            if (Date.now() > parsed.expiry) {
+                localStorage.removeItem("trackingData");
+                alert("Tracking data expired. Please search again.");
+                window.location.href = "index.html";
+                return;
+            }
+
+            const tracking = parsed.value;
+
+            // =============== SAFETY CHECK =============== //
+            if (!tracking) {
+                alert("Invalid tracking data. Please try again.");
+                localStorage.removeItem("trackingData");
+                window.location.href = "index.html";
+                return;
+            }
+
+            // ================= Fill in delivery info ================= //
+            document.querySelector(".delivery-info .info-group:nth-child(1) p").textContent =
+                tracking.dispatchDate ? new Date(tracking.dispatchDate).toDateString() : "Pending Update";
+            document.querySelector(".delivery-info .info-group:nth-child(2) p").textContent =
+                tracking.deliveryDate ? new Date(tracking.deliveryDate).toDateString() : "Pending Update";
+
+            // ================= Receiver Info ================= //
+            document.querySelector(".extra-info").innerHTML = `
+            <p><strong>Receiver:</strong> ${tracking.receiverName || "Pending Update"}</p>
+            <p><strong>Receiver Address:</strong> ${tracking.receiverAddress || "Pending Update"}</p>
+        `;
+
+            // ================= Package Summary ================= //
+            const summaryItems = tracking.packageSummary
+                ? tracking.packageSummary.split(",").map(item => `<li>${item.trim()}</li>`).join("")
+                : "<li>No summary available</li>";
+            document.querySelector(".package-summary ul").innerHTML = summaryItems;
+
+            // ================= Build Progress Steps ================= //
+            const progressContainer = document.querySelector(".progress-vertical");
+            progressContainer.innerHTML = "";
+
+            const allSteps = [
+                "Dispatch Received",
+                "Quality Control",
+                "Ready to Ship",
+                "In Transit",
+                "Out for Delivery",
+                "Delivered"
+            ];
+
+            const combinedHistory = (tracking.history || []).concat({
+                status: tracking.currentStatus,
+                progress: tracking.progress
+            });
+
+            allSteps.forEach(stepName => {
+                const match = combinedHistory.find(h => h.status === stepName);
+
+                const step = document.createElement("div");
+                step.classList.add("step");
+
+                if (stepName === tracking.currentStatus) {
+                    step.classList.add("active");
+                } else if (allSteps.indexOf(stepName) < allSteps.indexOf(tracking.currentStatus)) {
+                    step.classList.add("completed");
+                }
+
+                let icon = "fa-circle";
+                if (step.classList.contains("completed")) icon = "fa-check";
+                if (step.classList.contains("active")) icon = "fa-truck";
+                if (stepName === "Delivered") icon = "fa-circle-check";
+
+                step.innerHTML = `
+                <div class="circle"><i class="fa-solid ${icon}"></i></div>
+                <div class="step-content">
+                    <p class="title">${stepName}</p>
+                    <div class="details">
+                        <p class="location">${match?.progress?.location || "Pending Update"}</p>
+                        <p class="datetime">${match?.progress?.date
+                        ? `${match.progress.date} – ${match.progress.time || ""}`
+                        : "Pending Update"
+                    }</p>
+                    </div>
+                </div>
+            `;
+
+                progressContainer.appendChild(step);
+            });
+
+            // ================= Visual Enhancements ================= //
+            const steps = document.querySelectorAll(".progress-vertical .step");
+            const stepNames = Array.from(steps).map(step =>
+                step.querySelector(".title").textContent.trim()
+            );
+            const currentIndex = stepNames.indexOf(tracking.currentStatus);
+            steps.forEach((step, index) => {
+                step.classList.remove("completed", "active");
+                if (index < currentIndex) step.classList.add("completed");
+                else if (index === currentIndex) step.classList.add("active");
+            });
+
+            const totalSteps = steps.length;
+            const fillPercent = currentIndex > 0 ? (currentIndex / (totalSteps - 1)) * 100 : 0;
+            progressContainer.style.setProperty("--progress-fill", `${fillPercent}%`);
+
+            const activeStep = document.querySelector(".step.active");
+            if (activeStep) activeStep.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+
+        // ====================== MANUAL TRACKING LOOKUP ====================== //
+        async function fetchTrackingData(trackingId) {
+            try {
+                const trackingRef = ref(database, `tracking/${trackingId.toUpperCase()}`);
+                const snapshot = await get(trackingRef);
+
+                if (snapshot.exists()) {
+                    const data = snapshot.val();
+                    localStorage.setItem("trackingData", JSON.stringify({
+                        value: { id: trackingId, ...data },
+                        expiry: Date.now() + 10 * 60 * 1000
+                    }));
+                    displayTrackingData(data);
+                } else {
+                    alert('Tracking ID not found.');
+                }
+            } catch (err) {
+                console.error('Error fetching tracking:', err);
+                alert('Failed to retrieve data. Try again later.');
+            }
+        }
+
+        // Optional: auto clear expired tracking data
+        setInterval(() => {
+            const stored = localStorage.getItem("trackingData");
+            if (stored) {
+                const parsed = JSON.parse(stored);
+                if (Date.now() > parsed.expiry) {
+                    localStorage.removeItem("trackingData");
+                    console.log("Expired tracking data cleared.");
+                }
+            }
+        }, 60 * 1000);
+    </script>
+
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+</body>
+
+</html>

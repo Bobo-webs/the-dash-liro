@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Sign In - DashLiro</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dashliro.vercel.app/">
+  <meta property="og:title" content="DashLiro - Reliable. Fast. Secure Delivery.">
+  <meta property="og:description"
+    content="Deliver smarter with DashLiro. Fast, secure, and real-time tracked deliveries for parcels, bulk freight, and more.">
+  <meta property="og:image" content="https://dashliro.vercel.app/assets/images/dashliro-brand.png">
+  <meta property="og:site_name" content="DashLiro">
+
+  <!-- Favicon setup -->
+  <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpg">
+  <link rel="shortcut icon" href="./assets/images/logo.jpg" type="image/x-icon">
+  <link rel="apple-touch-icon" href="./assets/images/logo.jpg">
+
+  <!--Styling -->
+  <link rel="stylesheet" href="/assets/css/login.css" type="text/css" media="all" />
+  <link href="//fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
+
+  <!--//-Js -->
+  <script type="module" src="/assets/js/login.js" defer></script>
+</head>
+
+<body>
+  <!-- form section start -->
+  <section class="w3l-hotair-form">
+    <a href="index.html" class="logo-wrapper">
+      <span class="span-logo">
+        <img class="logo-img" src="/assets/images/logo.png" loading="lazy" alt="logo" />
+        <h2>DashLiro</h2>
+      </span>
+    </a>
+    <div class="container">
+      <!-- /form -->
+      <div class="workinghny-form-grid">
+        <div class="main-hotair">
+          <div class="content-wthree">
+            <h2>Admin Sign In</h2>
+            <form id="loginDiv">
+              <input type="email" id="email" class="text" name="text" placeholder="Email" aria-invalid="false"
+                required="" autofocus />
+              <input type="password" class="password" id="password" name="password" placeholder="Password"
+                aria-invalid="false" required="" autofocus />
+              <label class="show-label">
+                <input type="checkbox" id="showPasswordCheckbox" onclick="togglePassword()" class="show-password" />
+                Show Password
+              </label>
+              <div class="error" aria-errormessage="Invalid email or password." id="error">
+                <p>You have entered an invalid email or password.</p>
+              </div>
+              <button class="btn" type="submit" id="submit">Log In</button>
+            </form>
+
+            <p class="account">
+              Don't have an account? <a href="register-admin.html">Register</a>
+            </p>
+          </div>
+          <div class="w3l_form align-self">
+            <div class="left_grid_info">
+              <img src="/assets/images/admin.png" alt="" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- //form -->
+    </div>
+    <!-- copyright-->
+    <div class="copyright text-center">
+      <p class="copy-footer-29">
+        © 2026 DashLiro. All Rights Reserved.
+      </p>
+    </div>
+    <!-- //copyright-->
+  </section>
+  <!-- //form section start -->
+
+  <!-- //Error and Success Popup -->
+  <div id="popup-success" class="popup">
+    <div class="popup-content">
+      <img src="/assets/images/checked.png" alt="" />
+      <h2>Login Successful!</h2>
+      <p>Please wait...</p>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <p>Authenticating...</p>
+  </div>
+
+  <!-- //Script -->
+  <!-- --------- Show password Script ----------- -->
+  <script>
+    function togglePassword() {
+      const passwordField = document.getElementById("password");
+      const checkbox = document.getElementById("showPasswordCheckbox");
+
+      if (checkbox.checked) {
+        passwordField.type = "text";
+      } else {
+        passwordField.type = "password";
+      }
+    }
+  </script>
+</body>
+
+</html>

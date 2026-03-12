@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DashLiro - About us</title>
+
+  <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dashliro.vercel.app/">
+    <meta property="og:title" content="DashLiro - Reliable. Fast. Secure Delivery.">
+    <meta property="og:description"
+        content="Deliver smarter with DashLiro. Fast, secure, and real-time tracked deliveries for parcels, bulk freight, and more.">
+    <meta property="og:image" content="https://dashliro.vercel.app/assets/images/dashliro-brand.png">
+    <meta property="og:site_name" content="DashLiro">
+
+  <!-- Favicon setup -->
+  <link rel="icon" type="image/jpeg" href="./assets/images/logo.jpg">
+  <link rel="shortcut icon" href="./assets/images/logo.jpg" type="image/x-icon">
+  <link rel="apple-touch-icon" href="./assets/images/logo.jpg">
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js"></script>
+  <script type="module" src="/assets/js/app.js"></script>
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- Fullscreen Package Track Overlay -->
+  <div id="track-overlay">
+    <div class="track-overlay-content">
+      <span class="close-btn" onclick="closeTrackBox()">&times;</span>
+      <h2>Track Your Package</h2>
+      <div class="track-input-box">
+        <input type="text" placeholder="Enter Tracking ID">
+        <button class="id-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <ul class="info">
+            <li>
+              <i class="fa fa-envelope"></i><a class="mail-link"
+                href="mailto:contact.dashliro@gmail.com">contact.dashliro@gmail.com</a>
+            </li>
+            <li><i class="fa fa-map"></i>525 Uni Ave, Palo Alto, CA 94301</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <ul class="social-links">
+            <li><a href="https://t.me/DashLiro"><i class="fab fa-telegram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <a href="index.html" class="logo">
+              <h1>
+                <img src="./assets/images/logo.png" alt="logo">
+                DashLiro
+              </h1>
+            </a>
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html" class="active">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li class="track" id="track"><a onclick="openTrackBox(event)">Track Package</a></li>
+              <li class="track"><a href="#" onclick="openTrackBox(event)"><i class="fa-solid fa-location-dot"></i> Track
+                  Package</a></li>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <span class="breadcrumb"><a href="#">Home</a> / About Us</span>
+          <h3>About Us</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="single-property section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="main-image">
+            <img src="assets/images/company.png" alt="">
+          </div>
+          <div class="main-content">
+            <span class="category" style="background-color: rgb(119, 252, 152);">Verified</span>
+            <h4>Who We Are</h4>
+            <p>Founded in 2013, our company has become a trusted name in global courier and logistics solutions,
+              operating from over 200 offices across 80+ countries. With a team of more than 10,000 skilled
+              professionals, we provide dependable, verified services that connect people, businesses, and institutions
+              around the world.
+
+              <br><br>Driven by innovation and integrity, we specialize in secure delivery, diplomatic logistics, and
+              freight forwarding, ensuring every shipment is handled with precision, confidentiality, and care. Our
+              worldwide network and commitment to reliability make us a preferred partner for time-critical, high-value,
+              and mission-sensitive deliveries, wherever they’re needed most.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="info-table">
+            <ul>
+              <li>
+                <img src="assets/images/insurance.png" alt="" style="max-width: 50px;">
+                <h4>99.9%<br><span>Safety Rating</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/monitoring.png" alt="" style="max-width: 50px;">
+                <h4>24/7<br><span>Monitoring</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/encode.png" alt="" style="max-width: 50px;">
+                <h4>256-bit<br><span>Encryption</span></h4>
+              </li>
+              <li>
+                <img src="assets/images/certified.png" alt="" style="max-width: 50px;">
+                <h4>ISO<br><span>Certified</span></h4>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="properties section">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h6>| Our Foundation</h6>
+        <h5 class="topical-headers text-center">Built on reliability and vision, shaping the future of logistics.</h5>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <img src="assets/images/values.png" alt="">
+            <h4>Core Values</h4>
+            <p>We uphold integrity, reliability, and innovation, empowering our teams to deliver with precision, build
+              trust globally, and maintain excellence in every service.</p>
+            <ul></ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <img src="assets/images/vision.png" alt="">
+            <h4>Our Vision</h4>
+            <p>To become the world’s most trusted and integrated logistics partner, setting new standards for global
+              delivery through innovation, integrity, and excellence.</p>
+            <ul></ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="item">
+            <img src="assets/images/mission.png" alt="">
+            <h4>Our Mission</h4>
+            <p>To deliver secure, reliable, and innovative logistics solutions that connect people, businesses, and
+              governments worldwide with speed, transparency, and trust.</p>
+            <ul></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 5rem;" class="section-heading text-center">
+    <h6>| Our Partners</h6>
+    <h5 class="topical-headers text-center">Proudly Partnering with Industry Leaders Worldwide.</h5>
+  </div>
+
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide">
+        <img src="/assets/images/aramex.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="/assets/images/aws.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="/assets/images/emailjs.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="/assets/images/cashapp.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="/assets/images/shipbob.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="/assets/images/map.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="/assets/images/paypal.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="/assets/images/applecard.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="/assets/images/shopify.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="/assets/images/electra.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="/assets/images/shipengine.png" height="100" width="250" alt="" />
+      </div>
+      <div class="slide">
+        <img src="/assets/images/tesla.png" height="100" width="250" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ------------- Footer section ------------- -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="./assets/images/logo.png" alt="DashLiro Logo">
+        <div class="logo-text">
+          <h4>DashLiro</h4>
+          <p>Reliable. Fast. Secure Delivery.</p>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">&lt; Home</a></li>
+          <li><a href="about.html">&lt; About</a></li>
+          <li><a href="services.html">&lt; Services</a></li>
+          <li><a href="contact.html">&lt; Contact</a></li>
+          <li><a href="index.html#accordionExample">&lt; FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h5>Get in Touch</h5>
+        <p><i class="fa-solid fa-envelope"></i><a
+            href="mailto:contact.dashliro@gmail.com">contact.dashliro@gmail.com</a></p>
+        <p><i class="fa-solid fa-location-dot"></i> Head Office: 525 Uni Ave, Palo Alto, CA 94301</p>
+        <br>
+        <h5>Track Package</h5>
+        <div class="track-box">
+          <input type="text" placeholder="Enter Tracking ID">
+          <button class="id-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 DashLiro. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+</body>
+
+</html>
